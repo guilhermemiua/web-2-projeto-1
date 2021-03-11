@@ -1,6 +1,7 @@
 body {
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
+  background-color: #e4e5e3;
 }
 
 .container {
@@ -35,10 +36,137 @@ nav ul li {
 
 nav ul li a {
   color: #fff;
+  font-weight: 700;
 }
 
 nav ul li a:hover {
   border-bottom: 3px solid #fff;
+}
+
+/* Main */
+main {
+  padding: 30px 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+main > h1 {
+  margin-bottom: 20px;
+}
+
+.pokemon-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.pokemon-card {
+  width: 250px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.pokemon-card > img {
+  width: 150px;
+}
+
+.pokemon-card-info {
+  padding: 10px 0px;
+  border-top: 1px solid #e4e5e3;
+}
+
+.pokemon-card-info > h2 {
+  margin-bottom: 10px;
+}
+
+.pokemon-card-info-tags {
+  display: flex;
+  justify-content: center;
+}
+
+.pokemon-card-info-tags > div {
+  padding: 3px 0px;
+  width: 70px;
+  color: #fff;
+}
+
+.pokemon-card-info-tags > div:first-of-type {
+  margin-right: 5px;
+}
+
+.pokemon-card-info-tags > div:nth-of-type(2) {
+  margin-left: 5px;
+}
+
+/* Pokemon tags colors */
+.grass {
+  background-color: #69c23d;
+}
+
+.fire {
+  background-color: #ed6d12;
+}
+
+.water {
+  background-color: #4578ee;
+}
+
+.flying {
+  background-color: #8e6feb;
+}
+
+.normal {
+  background-color: #9c9c62;
+}
+
+.electric {
+  background-color: #f6c917;
+}
+
+.ghost {
+  background-color: #705898;
+}
+
+.ground {
+  background-color: #dbb54d;
+}
+
+.fairy {
+  background-color: #e87890;
+}
+
+.fighting {
+  background-color: #ae2a24;
+}
+
+.ice {
+  background-color: #98d8d8;
+}
+
+.rock {
+  background-color: #b8a038;
+}
+
+.dragon {
+  background-color: #714af8;
+}
+
+.psychic {
+  background-color: #f75888;
+}
+
+.dark {
+  background-color: #705848;
+}
+
+.bug {
+  background-color: #97a51d;
+}
+
+.poison {
+  background-color: #923a92;
 }
 
 /* Responsive */
@@ -51,5 +179,9 @@ nav ul li a:hover {
   nav.container {
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  .pokemon-cards {
+    justify-content: center;
   }
 }
