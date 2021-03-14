@@ -13,11 +13,13 @@ const fetchPokemons = async () => {
       pokemonCard.remove();
     });
 
-    await Promise.all(pokemonURLs.map(async (pokemonURL) => {
+    const pokemonsData = await Promise.all(pokemonURLs.map(async (pokemonURL) => {
       const response = await fetch(`${BASE_URL}/pokemon/${pokemonURL.name}`);
 
-      const pokemonData = await response.json();
+      return response.json();
+    }));
 
+    pokemonsData.map(pokemonData => {
       const card = document.createElement('div');
       const cardImage = document.createElement('img');
       const cardInfo = document.createElement('div');
@@ -46,9 +48,9 @@ const fetchPokemons = async () => {
       card.appendChild(cardImage);
       card.appendChild(cardInfo);
       pokemonCards.appendChild(card);
-    }));
+    });
   } catch(error) {
-    console.log(error);
+    showAlert('Error fetching pokemon data.');
   };
 };
 
@@ -63,13 +65,13 @@ const fieldValidations = () => {
     // Validation rules
     // Verify if is empty
     if (!inputValue.trim()) {
-      alert('Empty.');
+      showAlert('Field is required.');
 
       return;
     } 
     // Verify if user input length is bigger than 3
     else if (inputValue.length < 3) {
-      alert('String less than three characters');
+      showAlert('Minimum 3 characters.');
 
       return;
     };
@@ -90,7 +92,7 @@ const fieldValidations = () => {
 };
 
 const clearButtonListener = () => {
-  const  clearPokemonButton = document.querySelector('.clear-pokemon-button');
+  const clearPokemonButton = document.querySelector('.clear-pokemon-button');
 
   clearPokemonButton.addEventListener('click', async () => {
     const searchPokemonInput = document.querySelector('.search-pokemon-input');
@@ -101,6 +103,30 @@ const clearButtonListener = () => {
   });
 };
 
+const alertCloseButtonListener = () => {
+  const alertCloseButton = document.querySelector('.alert-close-button');
+  
+  alertCloseButton.addEventListener('click', () => {
+    const alert = document.querySelector('.alert');
+
+    alert.style.display = 'none';
+  });
+};
+
+const showAlert = (text) => {
+  const alert = document.querySelector('.alert');
+  const alertText = alert.querySelector('.alert-text');
+
+  alertText.textContent = text;
+
+  alert.style.display = 'flex';
+
+  setTimeout(() => {
+    alert.style.display = 'none';
+  }, 3000)
+}
+
+alertCloseButtonListener();
 clearButtonListener();
 fieldValidations();
 fetchPokemons();

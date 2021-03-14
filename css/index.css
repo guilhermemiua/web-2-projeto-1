@@ -208,6 +208,36 @@ main > h1 {
   background-color: #923a92;
 }
 
+/* Alert */
+.alert {
+  padding: 20px;
+  border-radius: 3px 3px 3px 3px;
+  color: #f96555;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  float: right;
+  right: 0;
+  top: 100px;
+  z-index: 1;
+  position: absolute;
+  display: none;
+}
+
+.alert-close-button {
+  color: #f96555;
+  font-size: 30px;
+  cursor: pointer;
+  transition: 1s;
+  background-color: transparent;
+}
+
+.alert-close-button:hover {
+  color: #000;
+}
+
 /* Responsive */
 @media all and (max-width: 720px) {
   .container {
