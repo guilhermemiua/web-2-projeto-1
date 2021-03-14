@@ -13,17 +13,27 @@
 <body>
   <header>
     <nav class="container nav-container" id="nav">
-      <img src="./assets/images/pokemon.svg" alt="Pokemon">
+     <a href="/">
+      <img src="./assets/images/pokemon.svg" alt="Pokemon Logo">
+     </a>
 
       <ul>
         <li><a href="/">Pokedex</a></li>
-        <li><a href="/">Berries</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="container">
     <h1>Pokedex</h1>
+
+    <div class="filter">
+      <label for="name" class="search-pokemon-label">Search Pokemon by name!</label>
+      <div class="search-pokemon-input-container">
+        <input type="text" class="search-pokemon-input" name="name" />
+        <button type="button" class="search-pokemon-button">Search</button>
+        <button type="button" class="clear-pokemon-button">Clear</button>
+      </div>
+    </div>
 
     <div class="pokemon-cards">
   
